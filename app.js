@@ -1,8 +1,15 @@
 const express = require('express');
-const app = express();
+const http = require('http');
 
+const app = express();
+app.set('view engine', 'ejs');
+app.set('views', './views');
+app.use(express.static('public'));
+
+
+//routes
 app.get("/gallery", function(req, res){
-    res.send("GALLERY");
+    res.render("gallery");
 });
 
 app.get("/", function(req, res){
@@ -13,4 +20,5 @@ app.get("/*", function(req, res){
     res.send("PAGE NOT FOUND");
 })
 
-app.listen(3000, () => console.log("Node.js sandbox running on port 3000..."));
+const server = http.createServer(app);
+server.listen(3000, () => console.log("Node.js & express sandbox running on port 3000..."));
