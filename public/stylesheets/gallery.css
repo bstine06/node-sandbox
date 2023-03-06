@@ -10,18 +10,34 @@ body {
     overflow:hidden;
 }
 
-#image-track > .image {
-    width: 40vmin;
-    height: 56vmin;
+#image-track > .image-frame > .image {
+    width: 50vmin;
+    height: 80vmin;
     object-fit:cover;
-    object-position: center;
+    object-position: 100% center;
+}
+
+.image-frame > * {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 #image-track {
     display: flex;
-    gap: 10vmin;
+    gap: 1vmin;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(0%, -50%);
+}
+
+.image-frame > h2 {
+    position: relative;
+    height: 0;
+    left: 2%;
+    top: 7%;
+    font-size: 2em;
+    color: black;
+    font-family: sans-serif;
 }
